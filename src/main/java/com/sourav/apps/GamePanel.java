@@ -25,16 +25,22 @@ public abstract class GamePanel extends JPanel implements Runnable, KeyListener,
     protected Image buffer = null;
     protected Graphics graphics = null;
 
-    protected final int WIDTH = 600;
-    protected final int HEIGHT = 600;
+    protected int WIDTH = 600;
+    protected int HEIGHT = 600;
 
-    public GamePanel() {
+    public GamePanel(int w, int h) {
         super();
+        WIDTH = w;
+        HEIGHT = h;
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         setFocusable(true);
         requestFocus();
         addMouseListener(this);
         addKeyListener(this);
+    }
+    
+    public GamePanel() {
+        this(600, 600);
     }
 
     @Override
